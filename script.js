@@ -1,33 +1,52 @@
+let date = new Date().toLocaleDateString();
 
-
-function processFile(){
+function processFile() {
     const file = document.getElementById("file-input").files[0];
-    if (file){
+    if (file) {
         const reader = new FileReader();
-        reader.onload = function(e){
+        reader.onload = function (e) {
             const data = new Uint8Array(e.target.result);
-            const workbook = XLSX.read(data, {type: 'array'});
+            const workbook = XLSX.read(data, { type: "array" });
 
-            //replace with index of sheet that contains the information needed on voucher
+            // Replace with the index of the sheet that contains the information needed on vouchers
             const sheetName = workbook.SheetNames[2];
             const sheet = workbook.Sheets[sheetName];
 
-            //convert to JSON
-            const jsonData = XLSX.utils.sheet_to_json(sheet)
+            // Convert sheet to JSON
+            const jsonData = XLSX.utils.sheet_to_json(sheet);
 
             generateVouchers(jsonData);
         };
         reader.readAsArrayBuffer(file);
-    }else{
-        alert("please select a file");
+    } else {
+        alert("Please select a file");
     }
 }
 
-function generateVouchers(data){
+function generateVouchers(data) {
     const container = document.getElementById("vouchers-container");
-    container.innerHTML = '';
+    container.innerHTML = ""; // Clear previous vouchers
 
     data.forEach((row, index) => {
-        
-    })
+        // Ensure row contains necessary fields
+        if (!row.Name || !row.Amount || !row.RoomNumber) {
+            console.error(`Missing data in row ${index + 1}`, row);
+            return; // Skip this row if data is missing
+        }
+
+        // Create a new div for each voucher
+        const voucherDiv = document.createElement("div");
+        voucherDiv.classList.add("voucher");
+
+        // Create voucher content
+        voucherDiv.innerHTML = `
+            <p>${date}</p>
+            <p>${row.Name}</p>
+            <p>${row.Amount}.00</p>
+            <p>${row.RoomNumber}</p>
+        `;
+
+        // Append the voucher to the container
+        container.appendChild(voucherDiv);
+    });
 }
