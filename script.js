@@ -40,7 +40,7 @@ function generateVouchers(data) {
 
         // Create voucher content
         voucherDiv.innerHTML = `
-            <p>${date}</p>
+            <p #"dateOne">${date}</p>
             <p>${row.Name}</p>
             <p>${row.Amount}.00</p>
             <p>${row.RoomNumber}</p>

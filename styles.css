@@ -1,0 +1,14 @@
+
+
+.voucher{
+    display: flex;
+    flex-direction: column;    
+}
+
+p{
+    border: solid 5px black;
+}
+
+#dateOne{
+    color: blue
+}
