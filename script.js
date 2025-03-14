@@ -26,4 +26,8 @@ function processFile(){
 function generateVouchers(data){
     const container = document.getElementById("vouchers-container");
     container.innerHTML = '';
+
+    data.forEach((row, index) => {
+        
+    })
 }
