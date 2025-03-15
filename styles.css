@@ -54,12 +54,23 @@ body{
 
 #mainAmount{
     text-align: right;
-
+    margin-bottom: 0.1cm;
 }
 
 #harvester{
     width: 12.5cm;
     text-align: center;
+    margin-bottom: 1.9cm;
+}
+
+#mainName{
+    text-align: right;
+    width: 11cm;
+    margin-bottom: 0.1cm;
+}
+
+#mainDate{
+    width: 1.8cm;
 }
 @media print {
     .print-btn {

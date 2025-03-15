@@ -49,8 +49,8 @@ function generateVouchers(data) {
             <div class="voucherMain">
                 <p id="mainAmount" class="height1">${row.Amount}</p>
                 <p id="harvester" class="height1">Harvester</p>
-                <p class="height1">${row.Name}</p>
-                <p class="height1">${date}</p>            
+                <p id="mainName" class="height1">${row.Name}</p>
+                <p id="mainDate" class="height1">${date}</p>            
         `;
 
         // Append the voucher to the container
