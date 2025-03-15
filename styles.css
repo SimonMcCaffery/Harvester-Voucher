@@ -1,14 +1,70 @@
+body{
+    margin: 0;
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+}
+
 
 
 .voucher{
+    display: flex;     
+    page-break-after: always;
+    width: 21cm;
+    height: 10cm;
+}
+
+.sideTab{
+    width: 6.2cm;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2cm;
+    padding-top: 2.5cm;
+    padding-left: 3cm;
+}
+
+.boxTab{
+    width: 2cm;
+    height: 1cm;
+    text-align: right;
+    text-justify: center;
+    
+    padding-top: 0.1cm;
+    padding-right: 0.1cm;
+}
+
+#nameTab{
+    text-align: left;
+    padding-top: 0;
+}
+
+.voucherMain{
+    width: 14.9cm;
+    height: 10cm;
     display: flex;
     flex-direction: column;    
+    padding-top: 1.4cm;
+    padding-right: 1cm;
 }
 
-p{
-    border: solid 5px black;
+.height1{
+    height: 1cm;
 }
 
-#dateOne{
-    color: blue
+#mainAmount{
+    text-align: right;
+
 }
+
+#harvester{
+    width: 12.5cm;
+    text-align: center;
+}
+@media print {
+    .print-btn {
+        display: none;
+    }
+}
+
+

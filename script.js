@@ -40,13 +40,23 @@ function generateVouchers(data) {
 
         // Create voucher content
         voucherDiv.innerHTML = `
-            <p #"dateOne">${date}</p>
-            <p>${row.Name}</p>
-            <p>${row.Amount}.00</p>
-            <p>${row.RoomNumber}</p>
+            <div class="sideTab">
+                <p class="boxTab">${date}</p>
+                <p class="boxTab" id="nameTab">${row.Name}</p>
+                <p class="boxTab">${row.RoomNumber}</p>
+                <p class="boxTab">${row.Amount}.00</p>
+            </div>
+            <div class="voucherMain">
+                <p id="mainAmount" class="height1">${row.Amount}</p>
+                <p id="harvester" class="height1">Harvester</p>
+                <p class="height1">${row.Name}</p>
+                <p class="height1">${date}</p>            
         `;
 
         // Append the voucher to the container
         container.appendChild(voucherDiv);
+
+
     });
+    window.print();
 }
