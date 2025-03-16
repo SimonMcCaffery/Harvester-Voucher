@@ -71,6 +71,7 @@ body{
 
 #mainDate{
     width: 1.8cm;
+    margin-right: 11.1cm;
 }
 @media print {
     .print-btn {

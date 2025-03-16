@@ -1,4 +1,4 @@
-let date = new Date().toLocaleDateString();
+var date;
 
 function processFile() {
     const file = document.getElementById("file-input").files[0];
@@ -34,6 +34,21 @@ function generateVouchers(data) {
             return; // Skip this row if data is missing
         }
 
+        const fullDate = document.getElementById("date-input").value;
+    
+        if (!fullDate) {
+            alert("Please select a date first.");
+            return;
+        }
+    
+        // Convert date string (YYYY-MM-DD) to a Date object
+        const dateObj = new Date(fullDate);
+        const day = dateObj.getDate().toString().padStart(2, "0"); // Ensure two-digit day
+        const month = (dateObj.getMonth() + 1).toString().padStart(2, "0"); // Get two-digit month (January = 0)
+        const formattedDate = `${day}/${month}`; // Format: "15/03"
+    
+    
+
         // Create a new div for each voucher
         const voucherDiv = document.createElement("div");
         voucherDiv.classList.add("voucher");
@@ -41,16 +56,16 @@ function generateVouchers(data) {
         // Create voucher content
         voucherDiv.innerHTML = `
             <div class="sideTab">
-                <p class="boxTab">${date}</p>
+                <p class="boxTab">${formattedDate}</p>
                 <p class="boxTab" id="nameTab">${row.Name}</p>
                 <p class="boxTab">${row.RoomNumber}</p>
                 <p class="boxTab">${row.Amount}.00</p>
             </div>
             <div class="voucherMain">
-                <p id="mainAmount" class="height1">${row.Amount}</p>
+                <p id="mainAmount" class="height1">${row.Amount}.00</p>
                 <p id="harvester" class="height1">Harvester</p>
                 <p id="mainName" class="height1">${row.Name}</p>
-                <p id="mainDate" class="height1">${date}</p>            
+                <p id="mainDate" class="height1">${formattedDate}</p>            
         `;
 
         // Append the voucher to the container
