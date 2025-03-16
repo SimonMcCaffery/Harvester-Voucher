@@ -8,6 +8,15 @@ body{
     margin: 0; /* Remove default margins */
 }
 
+@media print {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full-page height */
+        margin: 0;
+    }
+}
 
 
 .voucher{
@@ -43,8 +52,8 @@ body{
 }
 
 .voucherMain{
-    width: 14.9cm;
-    height: 10cm;
+    width: 14.8cm;
+    height: 100%;
     display: flex;
     flex-direction: column;    
     padding-top: 1.4cm;
