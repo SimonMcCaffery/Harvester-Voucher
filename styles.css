@@ -5,6 +5,11 @@ body{
     place-items: center;
 }
 
+@page {
+    size: 21cm 10cm; /* Example: 80mm width, 100mm height */
+    margin: 0; /* Remove default margins */
+}
+
 
 
 .voucher{
