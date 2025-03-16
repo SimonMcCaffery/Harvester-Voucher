@@ -1,11 +1,19 @@
-body{
+body {
     margin: 0;
     box-sizing: border-box;
 }
 
 @page {
-    size: 21cm 10cm; /* Example: 80mm width, 100mm height */
+    size: 21cm 10cm; /* Ensure correct page size */
     margin: 0; /* Remove default margins */
+}
+
+.voucher {
+    display: flex;
+    page-break-after: always;
+    width: 21cm;
+    height: 10cm;
+    margin: auto; /* Center the voucher */
 }
 
 @media print {
@@ -13,8 +21,11 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh; /* Full-page height */
-        margin: 0;
+        height: 100vh; /* Ensures full-page centering */
+    }
+
+    .print-btn {
+        display: none;
     }
 }
 
@@ -86,11 +97,6 @@ body{
 #mainDate{
     width: 1.8cm;
     margin-right: 11.1cm;
-}
-@media print {
-    .print-btn {
-        display: none;
-    }
 }
 
 
