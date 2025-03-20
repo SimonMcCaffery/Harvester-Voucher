@@ -3,9 +3,16 @@ body {
     box-sizing: border-box;
 }
 
-@page {
-    size: 21cm 10cm; /* Ensure correct page size */
-    margin: 0; /* Remove default margins */
+@media print {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;        
+    }
+
+    .print-btn {
+        display: none;
+    }
 }
 
 .voucher {
@@ -16,28 +23,6 @@ body {
     margin: auto; /* Center the voucher */
 }
 
-@media print {
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; /* Ensures full-page centering */
-    }
-
-    .print-btn {
-        display: none;
-    }
-}
-
-
-
-
-.voucher{
-    display: flex;     
-    page-break-after: always;
-    width: 21cm;
-    height: 10cm;
-}
 
 .sideTab{
     width: 6.2cm;
@@ -53,8 +38,7 @@ body {
     width: 2cm;
     height: 1cm;
     text-align: right;
-    text-justify: center;
-    
+    text-justify: center;    
     padding-top: 0.1cm;
     padding-right: 0.1cm;
 }
